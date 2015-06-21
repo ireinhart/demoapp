@@ -10,12 +10,14 @@ class BookType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array                $options
+     * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title');
+        $builder->add('location', null, ['property' => 'name']);
     }
+
     /**
      * @param OptionsResolver $resolver
      */
@@ -25,6 +27,7 @@ class BookType extends AbstractType
             'data_class' => 'AppBundle\Entity\Book',
         ));
     }
+
     /**
      * @return string
      */
