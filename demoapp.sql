@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS `demoapp`;
+CREATE DATABASE IF NOT EXISTS `demoapp` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `demoapp`;

@@ -1,0 +1,10 @@
+<VirtualHost *:80>
+  DocumentRoot <%= @document_root %>
+  ServerName <%= @server_name %>
+  ServerAlias localhost
+  DirectoryIndex index.php
+
+  <Directory /vagrant>
+    Require all granted
+  </Directory>
+</VirtualHost>
