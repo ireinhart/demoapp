@@ -18,13 +18,13 @@ class Book
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Book", inversedBy="locations")
+     * @ORM\ManyToOne(targetEntity="Location", inversedBy="books")
      * @ORM\JoinColumn(nullable=false)
      */
     private $location;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string")
      * @Assert\NotBlank(message="Please don't leave title blank!")
      * @Assert\Length(
      *     min = "5",
