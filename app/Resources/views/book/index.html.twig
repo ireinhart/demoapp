@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'book_index' %}
+
+{% block main %}
+    <h1>{{ 'title.book_list'|trans }}</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th><i class="fa fa-map-marker"></i> Location</th>
+            <th><i class="fa fa-cogs"></i> Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.location.name }}</td>
+                <td>
+                    <div class="item-actions">
+                        <a href="{{ path('book_show', { id: book.id }) }}" class="btn btn-sm btn-default">
+                            {{ 'action.show'|trans }}
+                        </a>
+
+                        <a href="{{ path('book_edit', { id: book.id }) }}" class="btn btn-sm btn-primary">
+                            <i class="fa fa-edit"></i> {{ 'action.edit'|trans }}
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="section actions">
+        <a href="{{ path('book_new') }}" class="btn btn-lg btn-block btn-success">
+            <i class="fa fa-plus"></i> {{ 'action.create_book'|trans }}
+        </a>
+    </div>
+
+    {{ parent() }}
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'book_new' %}
+
+{% block main %}
+    <h1>Book creation</h1>
+
+    {{ include('book/_form.html.twig') }}
+{% endblock %}
+
+{% block sidebar %}
+    {{ parent() }}
+
+{% endblock %}

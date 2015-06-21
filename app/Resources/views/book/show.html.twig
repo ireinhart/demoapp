@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'book_show' %}
+
+{% block main %}
+    <h1>{{ book.title }}</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Location</th>
+            <td><p>{{ book.location.name }}</p></td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="section">
+        <a href="{{ path('book_edit', { id: book.id }) }}" class="btn btn-lg btn-block btn-success">
+            <i class="fa fa-edit"></i> Edit book
+        </a>
+    </div>
+
+    <div class="section">
+        {{ include('book/_form.html.twig', {
+            form: delete_form,
+            button_label: 'Delete book',
+            button_css: 'btn btn-lg btn-block btn-danger',
+            include_back_to_home_link: false
+        }, with_context = false) }}
+    </div>
+
+{% endblock %}
