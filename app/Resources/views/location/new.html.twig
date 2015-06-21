@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'location_new' %}
+
+{% block main %}
+    <h1>Location creation</h1>
+
+    {{ include('location/_form.html.twig') }}
+{% endblock %}
+
+{% block sidebar %}
+    {{ parent() }}
+
+{% endblock %}

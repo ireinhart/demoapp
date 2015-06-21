@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'location_edit' %}
+
+{% block main %}
+    <h1>Edit location #{{ location.id }}</h1>
+
+    {{ include('location/_form.html.twig', {
+        form: edit_form,
+        button_label: 'Save changes',
+    }, with_context = false) }}
+{% endblock %}
+
+{% block sidebar %}
+    <div class="section actions">
+        {{ include('location/_form.html.twig', {
+            form: delete_form,
+            button_label: 'Delete location',
+            button_css: 'btn btn-lg btn-block btn-danger',
+            include_back_to_home_link: false
+        }, with_context = false) }}
+    </div>
+
+    {{ parent() }}
+{% endblock %}

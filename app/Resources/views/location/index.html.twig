@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'location_index' %}
+
+{% block main %}
+    <h1>{{ 'title.location_list'|trans }}</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th><i class="fa fa-cogs"></i> Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for location in locations %}
+            <tr>
+                <td>{{ location.name }}</td>
+                <td>
+                    <div class="item-actions">
+                        <a href="{{ path('location_show', { id: location.id }) }}" class="btn btn-sm btn-default">
+                            {{ 'action.show'|trans }}
+                        </a>
+
+                        <a href="{{ path('location_edit', { id: location.id }) }}" class="btn btn-sm btn-primary">
+                            <i class="fa fa-edit"></i> {{ 'action.edit'|trans }}
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="section actions">
+        <a href="{{ path('location_new') }}" class="btn btn-lg btn-block btn-success">
+            <i class="fa fa-plus"></i> {{ 'action.create_location'|trans }}
+        </a>
+    </div>
+
+    {{ parent() }}
+
+{% endblock %}
